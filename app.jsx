@@ -74,7 +74,6 @@ function App() {
         <Address />
         <Suites />
         <PullQuote />
-        <Rooftop />
         <Equivoque />
         <Services />
         <Vista />
