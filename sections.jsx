@@ -26,6 +26,26 @@ const IMG = {
   logoSvg: "https://www.hotelmiramar.mc/_img/logo-desktop.svg",
 };
 
+/* ---------- LANG DICTIONARY · FR · EN · IT ---------- */
+const LANG_DICT = {
+  fr: {
+    nav: { chambres: 'Chambres', rooftop: 'Rooftop', services: 'Services', monaco: 'Monaco', journal: 'Journal', contact: 'Contact', reserve: 'Réserver' },
+    hero: { script: "Au bord", thin: "de l'eau", estab: 'Établissement', since: 'Depuis 1956', addr: 'Adresse', addrVal: 'Port Hercule · Monaco', season: 'Saison', seasonVal: 'Été · MMXXVI', tag: 'Une maison contemporaine en bord de mer, face au Port Hercule et au palais princier.', scroll: 'Découvrir' },
+    manifesto: { w1: 'Petite maison,', w2: 'grande vue', w3: 'depuis 1956', w4: 'Port Hercule', w5: 'Quatorze chambres.' },
+  },
+  en: {
+    nav: { chambres: 'Rooms', rooftop: 'Rooftop', services: 'Services', monaco: 'Monaco', journal: 'Journal', contact: 'Contact', reserve: 'Book' },
+    hero: { script: 'At the edge', thin: 'of the water', estab: 'Established', since: 'Since 1956', addr: 'Address', addrVal: 'Port Hercule · Monaco', season: 'Season', seasonVal: 'Summer · MMXXVI', tag: 'A contemporary seafront house, facing Port Hercule and the princely palace.', scroll: 'Discover' },
+    manifesto: { w1: 'Small house,', w2: 'grand view', w3: 'since 1956', w4: 'Port Hercule', w5: 'Fourteen rooms.' },
+  },
+  it: {
+    nav: { chambres: 'Camere', rooftop: 'Rooftop', services: 'Servizi', monaco: 'Monaco', journal: 'Journal', contact: 'Contatto', reserve: 'Prenota' },
+    hero: { script: 'Sul bordo', thin: "dell'acqua", estab: 'Stabilito', since: 'Dal 1956', addr: 'Indirizzo', addrVal: 'Port Hercule · Monaco', season: 'Stagione', seasonVal: 'Estate · MMXXVI', tag: 'Una dimora contemporanea sul mare, di fronte al Port Hercule e al palazzo principesco.', scroll: 'Scopri' },
+    manifesto: { w1: 'Piccola dimora,', w2: 'grande vista', w3: 'dal 1956', w4: 'Port Hercule', w5: 'Quattordici camere.' },
+  },
+};
+function tt(lang) { return LANG_DICT[lang] || LANG_DICT.fr; }
+
 /* Wordmark — typographic recreation of brand */
 function Wordmark({ size = 1, color }) {
   return (
@@ -58,21 +78,21 @@ function Wordmark({ size = 1, color }) {
 }
 
 /* ---------- Header ---------- */
-function Header({ onBook }) {
+function Header({ onBook, lang = 'fr', setLang = () => {} }) {
   const [scrolled, setScrolled] = useState(false);
+  const T = tt(lang);
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 60);
     window.addEventListener('scroll', onScroll, { passive: true });
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
+  const ls = { cursor: 'pointer', transition: 'opacity 0.2s ease' };
   return (
     <header className={"hdr" + (scrolled ? " scrolled" : "")}>
       <div className="hdr-left">
         <nav className="hdr-nav">
-          <a href="#suites">Chambres</a>
-          <a href="#rooftop">Rooftop</a>
-          <a href="#services">Services</a>
-          <a href="#monaco">Monaco</a>
+          <a href="#suites">{T.nav.chambres}</a>
+          <a href="#services">{T.nav.services}</a>
         </nav>
       </div>
       <a href="#top" className="brand">
@@ -80,18 +100,24 @@ function Header({ onBook }) {
       </a>
       <div className="hdr-right">
         <nav className="hdr-nav">
-          <a href="#stories">Journal</a>
-          <a href="#contact">Contact</a>
+          <a href="#contact">{T.nav.contact}</a>
         </nav>
-        <span className="lang"><span className="on">FR</span><span>·</span><span>EN</span><span>·</span><span>IT</span></span>
-        <button className="btn" onClick={onBook}>Réserver <span className="arr"></span></button>
+        <span className="lang" role="group" aria-label="Language">
+          <span className={lang === 'fr' ? 'on' : ''} style={ls} onClick={() => setLang('fr')}>FR</span>
+          <span>·</span>
+          <span className={lang === 'en' ? 'on' : ''} style={ls} onClick={() => setLang('en')}>EN</span>
+          <span>·</span>
+          <span className={lang === 'it' ? 'on' : ''} style={ls} onClick={() => setLang('it')}>IT</span>
+        </span>
+        <button className="btn" onClick={onBook}>{T.nav.reserve} <span className="arr"></span></button>
       </div>
     </header>
   );
 }
 
 /* ---------- Hero ---------- */
-function Hero() {
+function Hero({ lang = 'fr' }) {
+  const T = tt(lang).hero;
   return (
     <section className="hero" id="top">
       <div className="hero-media">
@@ -100,20 +126,19 @@ function Hero() {
       <div className="hero-grain" aria-hidden="true"></div>
       <div className="hero-inner">
         <div className="hero-meta-top">
-          <div className="col"><span>Établissement</span>Depuis 1956</div>
-          <div className="col" style={{textAlign:'center'}}><span>Adresse</span>Port Hercule · Monaco</div>
-          <div className="col" style={{textAlign:'right'}}><span>Saison</span>Été · MMXXVI</div>
+          <div className="col"><span>{T.estab}</span>{T.since}</div>
+          <div className="col" style={{textAlign:'center'}}><span>{T.addr}</span>{T.addrVal}</div>
+          <div className="col" style={{textAlign:'right'}}><span>{T.season}</span>{T.seasonVal}</div>
         </div>
         <div className="hero-title-block">
           <h1 className="hero-title">
-            <span className="script">Au bord</span><br/>
-            <span className="thin">de l'eau</span><span className="dash"></span><br/>
+            <span className="script">{T.script}</span><br/>
+            <span className="thin">{T.thin}</span><span className="dash"></span><br/>
             Miramar
           </h1>
           <div className="hero-bottom">
             <div className="hero-tag">
-              Une maison contemporaine en bord de mer,<br/>
-              face au Port Hercule et au palais princier.
+              {T.tag}
             </div>
             <div></div>
             <div className="hero-loc">
@@ -124,7 +149,7 @@ function Hero() {
         </div>
       </div>
       <div className="hero-scroll">
-        Découvrir
+        {T.scroll}
         <span className="line"></span>
       </div>
     </section>
@@ -132,19 +157,20 @@ function Hero() {
 }
 
 /* ---------- Manifesto strip (replaces marquee) ---------- */
-function Manifesto() {
+function Manifesto({ lang = 'fr' }) {
+  const M = tt(lang).manifesto;
   return (
     <div className="manifesto">
       <div className="manifesto-inner">
-        <span className="w1">Petite maison,</span>
+        <span className="w1">{M.w1}</span>
         <span className="sep"></span>
-        <span className="w2">grande vue</span>
+        <span className="w2">{M.w2}</span>
         <span className="sep"></span>
-        <span className="w3">depuis 1956</span>
+        <span className="w3">{M.w3}</span>
         <span className="sep"></span>
-        <span className="w4">Port Hercule</span>
+        <span className="w4">{M.w4}</span>
         <span className="sep"></span>
-        <span className="w5">Quatorze chambres.</span>
+        <span className="w5">{M.w5}</span>
       </div>
     </div>
   );
