@@ -473,7 +473,6 @@ function EquivoqueApp() {
         <EqMenu />
         <EqEvents />
         <EqPrivate />
-        <EqPress />
         <EqReserve />
       </main>
       <EqFooter />

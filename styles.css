@@ -1815,3 +1815,127 @@ section { position: relative; }
 .tweaks-panel {
   display: none !important;
 }
+
+/* =========================================================
+   MOBILE FIXED-BG PARALLAX · v3 polish 2026-05-27 evening
+   Image fixed beneath · sections alternate transparent/solid
+   ========================================================= */
+
+@media (max-width: 980px) {
+  /* Body fixed Port Hercule bg · dark for white text on transparent sections */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image:
+      linear-gradient(180deg, rgba(14,27,48,0.55) 0%, rgba(14,27,48,0.85) 100%),
+      url('https://www.hotelmiramar.mc/_novaimg/4803976-1462024_1000_0_3000_3000_700_700.jpg');
+    background-size: cover;
+    background-position: center;
+    z-index: -2;
+    pointer-events: none;
+    filter: brightness(0.78) contrast(1.05) saturate(0.85) sepia(0.05);
+  }
+  /* Subtle dark gradient overlay for text legibility */
+  body::after {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background: radial-gradient(ellipse at center, rgba(14,27,48,0.15) 0%, rgba(14,27,48,0.45) 100%);
+    z-index: -1;
+    pointer-events: none;
+  }
+  body { background: transparent !important; }
+
+  /* SECTIONS · TRANSPARENT (show fixed bg · white/cream text) */
+  .hero,
+  .pullquote,
+  #address {
+    background: transparent !important;
+    color: var(--bone) !important;
+  }
+  .hero *, 
+  .pullquote *,
+  #address * {
+    color: var(--bone) !important;
+  }
+  .hero .script,
+  .pullquote .script,
+  .hero .dash,
+  .pullquote-text .script,
+  #address .chapter-label::before {
+    background: var(--gold) !important;
+  }
+  .hero .hero-tag,
+  .hero .hero-loc,
+  #address .serif-body {
+    color: rgba(250,246,236,0.78) !important;
+  }
+  /* Hero · hide its own bg image · let body fixed image show */
+  .hero-media,
+  .hero-media::after {
+    display: none !important;
+  }
+  /* Hero text on its own (no img bg) needs adjusted layout */
+  .hero {
+    min-height: 92vh;
+  }
+  .hero-inner {
+    background: linear-gradient(180deg, rgba(14,27,48,0.0) 30%, rgba(14,27,48,0.45) 100%);
+  }
+  /* Address section · transparent · white text · darker rule color */
+  #address hr.rule {
+    background: rgba(250,246,236,0.25) !important;
+  }
+  #address .duo .img {
+    border: 1px solid rgba(250,246,236,0.2);
+  }
+  #address .duo .img img {
+    filter: brightness(1.05) contrast(0.96) saturate(0.95) !important;
+  }
+
+  /* SECTIONS · SOLID PAPER (cover bg · dark text · default behavior) */
+  .manifesto,
+  #story,
+  #suites,
+  #services,
+  #book,
+  .ftr {
+    background: var(--paper) !important;
+    color: var(--ink);
+    position: relative;
+    z-index: 1;
+  }
+  #book { background: var(--ink) !important; color: var(--bone); }
+
+  /* HIDE redundant mobile sections (Lapo "troppo lungo · troppe immagini doppie") */
+  .vista,        /* filmstrip 5-shot · niche · mobile heavy */
+  #monaco,       /* itinerary 4-card · duplicates services vibe */
+  .press,        /* 3 press quotes · cut */
+  .gallery {     /* 12-col grid · heavy mobile · cut · Suites covers */
+    display: none !important;
+  }
+
+  /* PULLQUOTE · transparent · large editorial moment over Port Hercule bg */
+  .pullquote {
+    padding-block: clamp(120px, 28vw, 200px);
+    border: 0 !important;
+  }
+  .pullquote-text {
+    color: var(--bone) !important;
+    text-shadow: 0 4px 30px rgba(0,0,0,0.4);
+  }
+  .pullquote-text .script {
+    color: var(--gold) !important;
+  }
+
+  /* Editorial (rooftop) · already has own bg image · OK */
+  .editorial {
+    margin-block: 24px;
+  }
+
+  /* Equiv teaser · already dark · OK · adjust spacing */
+  .equiv {
+    margin-block: 24px;
+  }
+}
