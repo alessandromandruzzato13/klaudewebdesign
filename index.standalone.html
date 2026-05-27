@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8" />
+<title>Miramar — Monte-Carlo</title>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="description" content="Hôtel Miramar Monte-Carlo — une petite maison de quatorze chambres face au Port Hercule." />
+
+<!-- Image dependencies referenced from JSX code (lifted to window.__resources by bundler) -->
+<meta name="ext-resource-dependency" content="https://www.hotelmiramar.mc/_novaimg/4803976-1462024_1000_0_3000_3000_700_700.jpg" data-resource-id="hero" />
+<meta name="ext-resource-dependency" content="https://www.hotelmiramar.mc/_img/banner.jpg" data-resource-id="banner" />
+<meta name="ext-resource-dependency" content="https://www.hotelmiramar.mc/_novaimg/4803977-1462276_0_0_2200_1600_1925_1400.jpg" data-resource-id="room1" />
+<meta name="ext-resource-dependency" content="https://www.hotelmiramar.mc/_novaimg/4804618-1462277_0_0_2200_1600_1925_1400.jpg" data-resource-id="bfast" />
+<meta name="ext-resource-dependency" content="https://www.hotelmiramar.mc/_novaimg/4804619-1462278_0_0_2200_1600_1925_1400.jpg" data-resource-id="view" />
+<meta name="ext-resource-dependency" content="https://www.hotelmiramar.mc/_novaimg/4804510-1462193_0_0_2544_3405_672_900.jpg" data-resource-id="double" />
+<meta name="ext-resource-dependency" content="https://www.hotelmiramar.mc/_novaimg/4804550-1462232_0_0_2555_3576_643_900.jpg" data-resource-id="balcony" />
+<meta name="ext-resource-dependency" content="https://www.hotelmiramar.mc/_novaimg/4804585-1576522_0_0_2274_2979_687_900.jpg" data-resource-id="studio" />
+<meta name="ext-resource-dependency" content="https://www.hotelmiramar.mc/_novaimg/4804296-1462182_0_0_2752_3856_642_900.jpg" data-resource-id="g_a" />
+<meta name="ext-resource-dependency" content="https://www.hotelmiramar.mc/_novaimg/4804534-1462216_0_0_2628_3812_620_900.jpg" data-resource-id="g_b" />
+<meta name="ext-resource-dependency" content="https://www.hotelmiramar.mc/_novaimg/4804551-1462233_0_0_3844_2832_1200_884.jpg" data-resource-id="g_c" />
+<meta name="ext-resource-dependency" content="https://www.hotelmiramar.mc/_novaimg/4804553-1462235_0_0_2832_4256_598_900.jpg" data-resource-id="g_d" />
+<meta name="ext-resource-dependency" content="https://www.hotelmiramar.mc/_novaimg/5514829-1576523_0_0_3192_2548_1127_900.jpg" data-resource-id="g_e" />
+<meta name="ext-resource-dependency" content="https://www.hotelmiramar.mc/_novaimg/5514831-1576525_0_0_3708_2832_1178_900.jpg" data-resource-id="g_f" />
+<meta name="ext-resource-dependency" content="https://www.hotelmiramar.mc/_novaimg/4804512-1462195_0_0_2628_3740_632_900.jpg" data-resource-id="g_g" />
+<meta name="ext-resource-dependency" content="https://www.hotelmiramar.mc/_img/logo-desktop.svg" data-resource-id="logoSvg" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600&family=Italiana&family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;1,6..96,400&family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;1,6..72,300;1,6..72,400&family=Tenor+Sans&family=Albert+Sans:wght@200;300;400;500&family=Spectral:ital,wght@0,300;0,400;1,300;1,400&family=Cardo:ital@0;1&display=swap" rel="stylesheet" />
+
+<link rel="stylesheet" href="styles.css" />
+
+<style>
+  html, body { background: #F4EEE2; }
+  #root:empty::before {
+    content: "MIRAMAR";
+    position: fixed;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: "Cormorant Garamond", serif;
+    font-weight: 500;
+    font-size: 80px;
+    letter-spacing: 0.06em;
+    color: #0E1B30;
+    background: #F4EEE2;
+  }
+</style>
+
+<template id="__bundler_thumbnail" data-bg-color="#F4EEE2">
+  <svg viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg">
+    <rect width="1200" height="800" fill="#F4EEE2"/>
+    <text x="600" y="380" text-anchor="middle" font-family="Cormorant Garamond, serif" font-weight="500" font-size="120" letter-spacing="3" fill="#0E1B30" dominant-baseline="middle">Miramar</text>
+    <text x="600" y="470" text-anchor="middle" font-family="Italiana, serif" font-style="italic" font-size="44" fill="#A88656" dominant-baseline="middle">Monte&#xA0;·&#xA0;Carlo</text>
+    <line x1="540" y1="510" x2="660" y2="510" stroke="#A88656" stroke-width="1.5"/>
+    <text x="600" y="560" text-anchor="middle" font-family="Tenor Sans, sans-serif" font-size="18" letter-spacing="8" fill="#4B5870" dominant-baseline="middle">DEPUIS MCMLVI</text>
+  </svg>
+</template>
+</head>
+<body>
+
+<div id="root"></div>
+
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+
+<script type="text/babel" src="tweaks-panel.jsx"></script>
+<script type="text/babel" src="sections-inline.jsx"></script>
+<script type="text/babel" src="app.jsx"></script>
+
+</body>
+</html>

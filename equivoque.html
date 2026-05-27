@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8" />
+<title>Équivoque — Exclusive Rooftop · Monte-Carlo</title>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="description" content="Équivoque · Exclusive Rooftop Terrace au cinquième étage du Miramar Monte-Carlo. Perfume Cocktail Menu signé Maison Fata, Grasse." />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Italiana&family=Jost:wght@200;300;400;500&family=Pinyon+Script&display=swap" rel="stylesheet" />
+
+<link rel="stylesheet" href="equivoque.css" />
+
+<style>
+  html, body { background: #0A0A0E; }
+  #root:empty::before {
+    content: "Équivoque.";
+    position: fixed;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: "Cormorant Garamond", serif;
+    font-style: italic;
+    font-size: 96px;
+    color: #C9A368;
+    background: #0A0A0E;
+  }
+</style>
+
+<template id="__bundler_thumbnail">
+  <svg viewBox="0 0 240 240" xmlns="http://www.w3.org/2000/svg">
+    <rect width="240" height="240" fill="#0A0A0E"/>
+    <text x="120" y="128" text-anchor="middle" font-family="Cormorant Garamond, serif" font-style="italic" font-size="42" fill="#F0E6D2" dominant-baseline="middle">Équivoque<tspan fill="#C9A368">.</tspan></text>
+    <text x="120" y="160" text-anchor="middle" font-family="Jost, sans-serif" font-size="8" letter-spacing="5" fill="#C9A368" dominant-baseline="middle">MONTE · CARLO</text>
+  </svg>
+</template>
+</head>
+<body>
+
+<div id="root"></div>
+
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+
+<script type="text/babel" src="equivoque.jsx"></script>
+
+</body>
+</html>
