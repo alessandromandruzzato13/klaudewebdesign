@@ -1195,3 +1195,94 @@ a { color: inherit; text-decoration: none; }
     padding-bottom: calc(100px + env(safe-area-inset-bottom)) !important;
   }
 }
+
+/* =========================================================
+   ÉQUIVOQUE · v4 DESIGNER PASS · 2026-05-27 night
+   Hero text smaller mobile · bg lighter · unify gold · designer touch
+   ========================================================= */
+
+/* Unify gold cross-page · match Miramar */
+:root {
+  --gilt: #B89060;
+}
+
+@media (max-width: 980px) {
+  /* Body bg LIGHTER · meno scuro Lapo request */
+  body::before {
+    background-image:
+      linear-gradient(180deg, rgba(10,10,14,0.32) 0%, rgba(10,10,14,0.68) 100%),
+      url('https://static.wixstatic.com/media/be30c7_2ce9c69fca4f4083b108eb52a02db80f~mv2.jpg') !important;
+    filter: brightness(0.78) contrast(1.04) saturate(0.92) sepia(0.06) !important;
+  }
+  body::after {
+    background:
+      radial-gradient(ellipse at 30% 20%, rgba(184,144,96,0.04) 0%, transparent 50%),
+      radial-gradient(ellipse at center, rgba(10,10,14,0.10) 0%, rgba(10,10,14,0.38) 100%) !important;
+  }
+
+  /* Hero text smaller · less aggressive */
+  .eq-hero-title {
+    font-size: clamp(56px, 16vw, 84px) !important;
+    line-height: 0.92 !important;
+    letter-spacing: -0.02em !important;
+  }
+  .eq-hero-tag {
+    font-size: 16px !important;
+    line-height: 1.5;
+    max-width: 28ch;
+  }
+  .eq-eyebrow {
+    font-size: 10px !important;
+    letter-spacing: 0.42em !important;
+  }
+  .eq-hero-rule {
+    font-size: 11px !important;
+    letter-spacing: 0.32em !important;
+  }
+  .eq-hero-bottom .col {
+    font-size: 10px !important;
+  }
+  .eq-hero-bottom .col span {
+    font-size: 13px !important;
+    margin-top: 4px;
+  }
+
+  /* Unify gold cross-Equivoque · #B89060 · designer warmth */
+  .eq-eyebrow,
+  .eq-hero-title .dot,
+  .eq-brand .dot,
+  .eq-h2 .dot,
+  .equiv-dot,
+  .eq-sub-eyebrow,
+  .eq-frag-num,
+  .eq-cock-eyebrow,
+  .eq-cock-price,
+  .eq-event-top,
+  .eq-private h3 em,
+  .eq-back,
+  .eq-btn,
+  .eq-divider,
+  .quote-mark,
+  .eq-hero-rule {
+    color: #B89060 !important;
+  }
+  .eq-bf-submit {
+    background: #B89060 !important;
+  }
+  .eq-bf-submit:hover {
+    background: #97724A !important;
+  }
+
+  /* Designer touch · poetic spacing · soften grid-feel */
+  .eq-section {
+    padding-block: clamp(72px, 14vw, 110px);
+  }
+  .eq-frag-name {
+    font-weight: 300 !important;
+  }
+}
+
+/* Cross-Equivoque · designer ornament subtle */
+.eq-divider {
+  background: #B89060 !important;
+}

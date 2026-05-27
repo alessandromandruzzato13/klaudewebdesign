@@ -1939,3 +1939,60 @@ section { position: relative; }
     margin-block: 24px;
   }
 }
+
+/* =========================================================
+   v4 · DESIGNER PASS · 2026-05-27 night
+   Fix overlap · unify gold · soften engineer-feel
+   ========================================================= */
+
+/* Gold unification cross-page · single warm tone */
+:root {
+  --gold:     #B89060;
+  --gold-2:   #97724A;
+}
+
+@media (max-width: 980px) {
+  /* Fix Editorial Rooftop ↔ Equiv overlap bug · explicit isolation */
+  .editorial,
+  .equiv {
+    position: relative;
+    z-index: 2;
+    isolation: isolate; /* contains stacking · no bleed */
+    margin: 56px 0;
+    overflow: hidden;
+  }
+  .equiv {
+    margin-top: 64px;
+  }
+  /* Equiv bg fully contained */
+  .equiv-bg {
+    z-index: 0;
+  }
+
+  /* Soften chapter numerals · designer feel · subtle accent not heavy */
+  .chapter-numeral {
+    font-size: 56px !important;
+    opacity: 0.08 !important;
+    letter-spacing: 0.3em !important;
+  }
+  /* Less aggressive svc-num (services numbered 01-06) */
+  .svc-num {
+    font-size: 14px;
+    font-style: italic;
+    opacity: 0.7;
+  }
+  /* Suite num · subtler */
+  .suite-num {
+    font-size: 10px;
+    letter-spacing: 0.42em;
+    opacity: 0.7;
+    mix-blend-mode: normal;
+    color: var(--bone);
+    text-shadow: 0 1px 6px rgba(0,0,0,0.3);
+  }
+}
+
+/* Cross-page · subtle ornaments designer touch */
+.chapter-label::before {
+  background: var(--gold) !important;
+}
