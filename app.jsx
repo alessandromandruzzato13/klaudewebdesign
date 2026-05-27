@@ -2,6 +2,7 @@
 
 function App() {
   const [lightbox, setLightbox] = useState(null);
+  const [lang, setLang] = useState('fr'); // fr · en · it · default FR (Monaco)
   const t = useTweaks({
     palette:    "ivory",       // ivory | shore | midnight
     accent:     "gold",        // gold | sea | ink
@@ -66,33 +67,40 @@ function App() {
 
   return (
     <>
-      <Header onBook={onBook} />
+      <Header onBook={onBook} lang={lang} setLang={setLang} />
       <main>
-        <Hero />
-        <Manifesto />
-        <Intro />
-        <Address />
-        <Suites />
-        <PullQuote />
-        <Equivoque />
-        <Services />
-        <Vista />
-        <Monaco />
-        <Press />
-        <Gallery onOpen={setLightbox} />
-        <Booking />
+        <Hero lang={lang} />
+        <Manifesto lang={lang} />
+        <Intro lang={lang} />
+        <Address lang={lang} />
+        <Suites lang={lang} />
+        <PullQuote lang={lang} />
+        <Equivoque lang={lang} />
+        <Services lang={lang} />
+        <Vista lang={lang} />
+        <Monaco lang={lang} />
+        <Press lang={lang} />
+        <Gallery onOpen={setLightbox} lang={lang} />
+        <Booking lang={lang} />
       </main>
-      <Footer />
+      <Footer lang={lang} />
       <Lightbox src={lightbox} onClose={() => setLightbox(null)} />
 
       {/* Mobile sticky reserve bar — only visible on small screens via CSS */}
       <div className="mobile-bar">
         <div className="mb-label">
           Hôtel Miramar
-          <small>14 chambres · Port Hercule</small>
+          <small>
+            {lang === 'fr' && '14 chambres · Port Hercule'}
+            {lang === 'en' && '14 rooms · Port Hercule'}
+            {lang === 'it' && '14 camere · Port Hercule'}
+          </small>
         </div>
         <button className="mb-cta" onClick={onBook}>
-          Réserver <span style={{display:'inline-block', width:14, height:1, background:'currentColor'}}></span>
+          {lang === 'fr' && 'Réserver'}
+          {lang === 'en' && 'Book'}
+          {lang === 'it' && 'Prenota'}
+          {' '}<span style={{display:'inline-block', width:14, height:1, background:'currentColor'}}></span>
         </button>
       </div>
 
